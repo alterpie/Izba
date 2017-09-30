@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="item_supplier_length">100</integer>
+    <integer name="product_name_length">200</integer>
+    <integer name="product_description_length">500</integer>
+    <integer name="material_length">100</integer>
+    <integer name="size_length">100</integer>
+    <integer name="set_details_length">250</integer>
+    <integer name="price_comment_length">100</integer>
+    <integer name="comments_length">500</integer>
+</resources>
