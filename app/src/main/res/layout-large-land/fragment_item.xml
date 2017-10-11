@@ -222,6 +222,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
+                        android:layout_marginLeft="3dp"
                         android:paddingBottom="8dp"
                         android:text="@string/unit_packing_details"
                         android:textSize="@dimen/text_view_label_text_size"/>
@@ -235,6 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
+                        android:layout_marginLeft="3dp"
                         android:layout_marginTop="8dp"
                         android:paddingBottom="8dp"
                         android:text="@string/product_unit"
@@ -317,6 +319,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
+                        android:layout_marginLeft="3dp"
                         android:paddingBottom="8dp"
                         android:text="@string/price_basis"
                         android:textSize="@dimen/text_view_label_text_size"/>
@@ -361,6 +364,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
+                        android:layout_marginLeft="3dp"
                         android:paddingBottom="8dp"
                         android:text="@string/inner_pack_type"
                         android:textSize="@dimen/text_view_label_text_size"/>
@@ -375,6 +379,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
+                        android:layout_marginLeft="3dp"
                         android:paddingBottom="8dp"
                         android:text="@string/outer_pack_type"
                         android:textSize="@dimen/text_view_label_text_size"/>
@@ -555,6 +560,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
+                        android:layout_marginLeft="3dp"
                         android:paddingBottom="8dp"
                         android:text="@string/moq_unit"
                         android:textSize="12sp"/>

@@ -79,6 +79,6 @@
     <string name="add_photo">Add Photo</string>
     <string name="template_maximum_files_allowed">Maximum %1$d files allowed</string>
     <string name="select_person">Select Person</string>
-    <string name="back"><![CDATA[<<]]></string>
-    <string name="forward"><![CDATA[>>]]></string>
+    <string name="back" translatable="false"><![CDATA[<<]]></string>
+    <string name="forward" translatable="false"><![CDATA[>>]]></string>
 </resources>

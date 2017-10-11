@@ -49,11 +49,13 @@ class SupplierFragment : BaseFragment<MainActivity>(), SelectSupplierListener, A
 
     override fun onSupplierSelected(supplier: Supplier) {
         this.supplier = supplier
+        iv_main_photo.setImageDrawable(null)
         til_supplier_name.setText(supplier.name)
         til_supplier_id.setText(supplier.id)
         loadSupplierPhotos(supplier)
     }
 
+    @Suppress("OverridingDeprecatedMember", "DEPRECATION")
     override fun onAttach(activity: Activity?) {
         super.onAttach(activity)
         this.activity = activity as? MainActivity

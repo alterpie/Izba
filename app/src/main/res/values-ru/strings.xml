@@ -67,5 +67,13 @@
     <string name="carton">картонный ящик</string>
     <string name="woven_pp_bag">баул</string>
     <string name="comments">Комментарии</string>
+    <string name="click_twice_to_exit">"Для выхода нажмите дважды "</string>
+    <string name="delete_photo_question">Удалить фото?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="choose_supplier">Выберите поставщика</string>
+    <string name="add_photo">Добавить фото</string>
+    <string name="template_maximum_files_allowed">Максимум %1$d файлов</string>
+    <string name="select_person">Выберите пользователя</string>
 
 </resources>

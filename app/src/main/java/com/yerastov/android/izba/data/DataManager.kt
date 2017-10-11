@@ -29,13 +29,15 @@ object DataManager {
         if (!file.exists()) file.createNewFile()
         file.forEachLine {
             val split = it.split(";")
-            list.add(Person(split[1], split[0]))
+            if (split.size > 1) {
+                list.add(Person(split[1], split[0]))
+            }
         }
         return list
     }
 
     fun saveSupplier(supplier: Supplier, context: Context) {
-        val str = formatEntity(supplier.id, supplier.name)
+        val str = formatEntity(supplier.id, supplier.name, supplier.date, supplier.personName)
         val file = File(getCacheDirectory(context), SUPPLIER_FILENAME)
         file.writeToFile(str)
     }
@@ -47,7 +49,9 @@ object DataManager {
             if (!exists()) createNewFile()
             forEachLine {
                 val split = it.split(";")
-                list.add(Supplier(split[1], split[0]))
+                if (split.size > 1) {
+                    list.add(Supplier(split[1], split[0], split[2], split[3]))
+                }
             }
         }
         return list
@@ -90,7 +94,7 @@ object DataManager {
         strings.forEach {
             builder.append(it).append(';')
         }
-        builder.append('\n')
+        builder.append('\r').append('\n')
         return builder.toString()
     }
 

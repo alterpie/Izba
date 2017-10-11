@@ -3,12 +3,10 @@ package com.yerastov.android.izba.ui.person
 import android.app.Activity
 import android.os.Bundle
 import android.view.View
-import com.yerastov.android.izba.R
+import com.yerastov.android.izba.*
 import com.yerastov.android.izba.data.DataManager
+import com.yerastov.android.izba.data.PrefsManager
 import com.yerastov.android.izba.domain.Person
-import com.yerastov.android.izba.getText
-import com.yerastov.android.izba.hideKeyboard
-import com.yerastov.android.izba.isTextEmpty
 import com.yerastov.android.izba.ui.base.BaseDialog
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -55,6 +53,7 @@ internal class AddPersonDialog : BaseDialog(), View.OnClickListener {
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(
                                     {
+                                        if (til_device.visibility == View.VISIBLE) PrefsManager.saveDeviceId(til_device.getText(), activity)
                                         progress.visibility = View.GONE
                                         listener.onPersonAdded(person)
                                         dismiss()
@@ -64,6 +63,17 @@ internal class AddPersonDialog : BaseDialog(), View.OnClickListener {
 
             R.id.btn_cancel -> {
                 dismiss()
+            }
+        }
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        PrefsManager.getDeviceId(activity).let {
+            if (it.isEmpty()) {
+                til_device.visibility = View.VISIBLE
+            } else {
+                til_device.setText(it)
             }
         }
     }

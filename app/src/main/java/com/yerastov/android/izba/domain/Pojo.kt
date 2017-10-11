@@ -35,8 +35,12 @@ data class Person(val name: String,
 }
 
 data class Supplier(val name: String,
-                    val id: String) : Parcelable {
+                    val id: String,
+                    val date: String,
+                    val personName: String) : Parcelable {
     constructor(source: Parcel) : this(
+            source.readString(),
+            source.readString(),
             source.readString(),
             source.readString()
     )
@@ -46,6 +50,8 @@ data class Supplier(val name: String,
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(name)
         writeString(id)
+        writeString(date)
+        writeString(personName)
     }
 
     companion object {

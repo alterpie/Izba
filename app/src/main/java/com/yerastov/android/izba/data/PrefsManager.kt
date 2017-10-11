@@ -11,6 +11,7 @@ object PrefsManager {
 
     private val SUPPLIER_ID = "SUPPLIER_ID"
     private val ITEM_ID = "ITEM_ID"
+    private val DEVICE_ID = "DEVICE_ID"
     private val LOCALE = "LOCALE"
 
     fun generateSupplierId(device: String, context: Context): String {
@@ -29,9 +30,14 @@ object PrefsManager {
         return str
     }
 
+    fun saveDeviceId(id: String, context: Context) {
+        context.getPreferences().edit().putString(DEVICE_ID, id).apply()
+    }
+
+    fun getDeviceId(context: Context) = context.getPreferences().getString(DEVICE_ID, "")
+
     fun setLocale(@Language.Locale locale: String, context: Context) {
-        val preferences = context.getPreferences()
-        preferences.edit().putString(LOCALE, locale).apply()
+        context.getPreferences().edit().putString(LOCALE, locale).apply()
     }
 
     fun getLocale(context: Context): String = context.getPreferences().getString(LOCALE, Language.ENGLISH)

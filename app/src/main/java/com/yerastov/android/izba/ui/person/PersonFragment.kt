@@ -105,6 +105,9 @@ class PersonFragment : BaseFragment<MainActivity>(), View.OnClickListener, AddPe
             til_input_person.setText(person.name)
             til_device.setText(person.device)
         }
+        PrefsManager.getDeviceId(getActivity()).let {
+            if (!it.isEmpty()) til_device.setText(it)
+        }
         Glide.with(this).asGif().load(R.raw.panda).into(iv_panda)
         initViewListeners()
     }

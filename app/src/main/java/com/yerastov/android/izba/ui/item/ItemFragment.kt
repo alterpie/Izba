@@ -92,7 +92,7 @@ class ItemFragment : BaseFragment<MainActivity>(), View.OnClickListener {
         rv_items.adapter = adapter
         supplier = arguments.getParcelable(KEY_SUPPLIER)
         person = arguments.getParcelable(KEY_PERSON)
-        tv_date_time.text = SimpleDateFormat("dd.MM.yy hh-mm", Locale.getDefault()).format(Date())
+        tv_date_time.text = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault()).format(Date())
         tv_supplier.text = supplier.name
         tv_supplier_id.text = supplier.id
         tv_item_id.text = supplier.id + '_' + PrefsManager.generateItemId(getActivity())

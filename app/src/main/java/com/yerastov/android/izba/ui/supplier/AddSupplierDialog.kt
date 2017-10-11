@@ -14,6 +14,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_add_supplier.*
 import kotlinx.android.synthetic.main.progress.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by yerastov on 27/09/17.
@@ -53,7 +55,11 @@ internal class AddSupplierDialog : BaseDialog(), View.OnClickListener {
         when (v?.id) {
             R.id.btn_add -> {
                 if (validateInput()) {
-                    val supplier = Supplier(til_supplier.getText(), PrefsManager.generateSupplierId(arguments.getParcelable<Person>(KEY_PERSON).device, activity))
+                    val person = arguments.getParcelable<Person>(KEY_PERSON)
+                    val supplier = Supplier(til_supplier.getText(),
+                            PrefsManager.generateSupplierId(person.device, activity),
+                            SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault()).format(Date()),
+                            person.name)
                     saveSupplier(supplier)
                             .subscribeOn(Schedulers.computation())
                             .observeOn(AndroidSchedulers.mainThread())
