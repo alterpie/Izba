@@ -116,31 +116,41 @@ class ItemFragment : BaseFragment<MainActivity>(), View.OnClickListener {
         when (v?.id) {
             R.id.btn_back -> activity?.replaceFragment(SupplierFragment.newInstance(person, supplier))
             R.id.btn_save_item_create_new -> {
-                saveItem()
-                        .subscribeOn(Schedulers.computation())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                {
-                                    progress.visibility = View.GONE
-                                    adapter.clearItems()
-                                    tv_item_id.text = supplier.id + '_' + PrefsManager.generateItemId(getActivity())
-                                },
-                                {
-                                    activity?.toast(it.message)
-                                })
+                if (adapter.itemCount > 0) {
+                    saveItem()
+                            .subscribeOn(Schedulers.computation())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(
+                                    {
+                                        progress.visibility = View.GONE
+                                        adapter.clearItems()
+                                        tv_item_id.text = supplier.id + '_' + PrefsManager.generateItemId(getActivity())
+                                        tv_date_time.text = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault()).format(Date())
+                                    },
+                                    {
+                                        activity?.toast(it.message)
+                                    })
+                } else {
+                    getActivity().toast(getString(R.string.please_add_photo))
+                }
+
             }
             R.id.btn_save_item_exit -> {
-                saveItem()
-                        .subscribeOn(Schedulers.computation())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                {
-                                    activity?.replaceFragment(SupplierFragment.newInstance(person, supplier))
-                                },
-                                {
-                                    progress.visibility = View.GONE
-                                    activity?.toast(it.message)
-                                })
+                if (adapter.itemCount > 0) {
+                    saveItem()
+                            .subscribeOn(Schedulers.computation())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(
+                                    {
+                                        activity?.replaceFragment(SupplierFragment.newInstance(person, supplier))
+                                    },
+                                    {
+                                        progress.visibility = View.GONE
+                                        activity?.toast(it.message)
+                                    })
+                } else {
+                    getActivity().toast(getString(R.string.please_add_photo))
+                }
             }
 
             R.id.btn_add_photo -> {

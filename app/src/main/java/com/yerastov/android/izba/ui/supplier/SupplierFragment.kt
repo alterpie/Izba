@@ -237,7 +237,7 @@ class SupplierFragment : BaseFragment<MainActivity>(), SelectSupplierListener, A
         progress.visibility = View.VISIBLE
         return Single.create({ e ->
             try {
-                e.onSuccess(DataManager.loadSupplierPhotos(supplier.name, getActivity()))
+                e.onSuccess(DataManager.loadSupplierPhotos(supplier.id, getActivity()))
             } catch (ex: Exception) {
                 e.onError(ex)
             }

@@ -81,4 +81,5 @@
     <string name="select_person">Select Person</string>
     <string name="back" translatable="false"><![CDATA[<<]]></string>
     <string name="forward" translatable="false"><![CDATA[>>]]></string>
+    <string name="please_add_photo">Please add photo</string>
 </resources>

@@ -98,9 +98,9 @@ object DataManager {
         return builder.toString()
     }
 
-    fun loadSupplierPhotos(supplierName: String, context: Context): List<String> {
+    fun loadSupplierPhotos(supplierId: String, context: Context): List<String> {
         val list = ArrayList<String>()
-        val path = getCacheDirectory(context).absolutePath + File.separator + "photos" + File.separator + "suppliers" + File.separator + supplierName
+        val path = getCacheDirectory(context).absolutePath + File.separator + "photos" + File.separator + "suppliers" + File.separator + supplierId
         val dir = File(path)
         with(dir) {
             if (exists() && isDirectory) {
@@ -111,7 +111,7 @@ object DataManager {
     }
 
     fun saveSupplierPhoto(path: String, supplierName: String, supplierId: String, context: Context): String {
-        val dir = getCacheDirectory(context).absolutePath + File.separator + "photos" + File.separator + "suppliers" + File.separator + supplierName
+        val dir = getCacheDirectory(context).absolutePath + File.separator + "photos" + File.separator + "suppliers" + File.separator + supplierId
         val supplierNumber = getSupplierPhotoNumber(dir)
         supplierNumber?.let {
             val file = File(dir, supplierId + "_" + it + "." + "jpg")
